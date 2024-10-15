@@ -29,7 +29,11 @@ public class Main {
 
     public static int meanHouseholdEstimateTonnesPerYear(int[] householdEstimatesTonnesPerYear)
     {
-        return -1;
+        int total = 0;
+        for(int i = 0; i < householdEstimatesTonnesPerYear.length; i++){
+            total += householdEstimatesTonnesPerYear[i];
+        }
+        return total/householdEstimatesTonnesPerYear.length + 1;
     }
 
     public static int meanRetailEstimateKgPerCapitaPerYear(int[] retailEstimatesKgPerCapitaPerYear)
@@ -64,7 +68,12 @@ public class Main {
 
     public static int meanFoodServiceEstimateTonnesPerYear(int[] foodServiceEstimatesTonnesPerYear)
     {
-        return -1;
+        double sum = 0;
+        for (int i:foodServiceEstimatesTonnesPerYear){
+            sum = sum + i;
+        }
+        double mean = (sum/foodServiceEstimatesTonnesPerYear.length)+0.5;
+        return (int)mean;
     }
 
     /**
@@ -73,17 +82,47 @@ public class Main {
 
     public static int medianTotalWasteKgPerCapitaPerYear(int[] totalWasteKgPerCapitaPerYear)
     {
-        return -1;
+        int medianValue = 0;
+        Arrays.sort(totalWasteKgPerCapitaPerYear);
+        int middle = totalWasteKgPerCapitaPerYear[totalWasteKgPerCapitaPerYear.length/2];
+        if(totalWasteKgPerCapitaPerYear.length%2 == 0){
+            int secondValue = totalWasteKgPerCapitaPerYear[totalWasteKgPerCapitaPerYear.length/2+1];
+            medianValue = (middle + secondValue)/2;
+        }
+        else{
+            medianValue = middle;
+        }
+        return medianValue;
     }
 
     public static int medianHouseholdEstimateKgPerCapitaPerYear(int[] householdEstimatesKgPerCapitaPerYear)
     {
-        return -1;
+        int medianValue = 0;
+        Arrays.sort(householdEstimatesKgPerCapitaPerYear);
+        int middle = householdEstimatesKgPerCapitaPerYear [householdEstimatesKgPerCapitaPerYear.length/2];
+        if(householdEstimatesKgPerCapitaPerYear.length%2==0){
+            int secondValue=householdEstimatesKgPerCapitaPerYear[householdEstimatesKgPerCapitaPerYear.length/2+1];
+            medianValue = (middle+secondValue)/2;
+        }
+        else{
+            medianValue = middle;
+        }
+        return medianValue;
     }
 
     public static int medianHouseholdEstimateTonnesPerYear(int[] householdEstimatesTonnesPerYear)
     {
-        return -1;
+        int medianValue = 0;
+        Arrays.sort(householdEstimatesTonnesPerYear);
+        int middle = householdEstimatesTonnesPerYear [householdEstimatesTonnesPerYear.length/2];
+        if(householdEstimatesTonnesPerYear.length%2==0){
+            int secondValue=householdEstimatesTonnesPerYear[householdEstimatesTonnesPerYear.length/2+1];
+            medianValue = (middle+secondValue)/2;
+        }
+        else{
+            medianValue = middle;
+        }
+        return medianValue;
     }
 
     public static int medianRetailEstimateKgPerCapitaPerYear(int[] retailEstimatesKgPerCapitaPerYear)
@@ -98,24 +137,52 @@ public class Main {
         else{
             median = middle;
         }
-
-
         return median;
     }
 
     public static int medianRetailEstimateTonnesPerYear(int[] retailEstimatesTonnesPerYear)
     {
-        return -1;
+        int median = 0;
+        Arrays.sort(retailEstimatesTonnesPerYear);
+        int middle = retailEstimatesTonnesPerYear[retailEstimatesTonnesPerYear.length/2];
+        if(retailEstimatesTonnesPerYear.length%2 == 0){
+            int secondValue = retailEstimatesTonnesPerYear[retailEstimatesTonnesPerYear.length/2+1];
+            median = (middle + secondValue)/2;
+        }
+        else{
+            median = middle;
+        }
+        return median;
     }
 
     public static int medianFoodServiceEstimateKgPerCapitaPerYear(int[] foodServiceEstimatesKgPerCapitaPerYear)
     {
-        return -1;
+        int median = 0;
+        Arrays.sort(foodServiceEstimatesKgPerCapitaPerYear);
+        int middle = foodServiceEstimatesKgPerCapitaPerYear[foodServiceEstimatesKgPerCapitaPerYear.length/2];
+        if(foodServiceEstimatesKgPerCapitaPerYear.length%2 == 0){
+            int secondValue = foodServiceEstimatesKgPerCapitaPerYear[foodServiceEstimatesKgPerCapitaPerYear.length/2+1];
+            median = (middle + secondValue)/2;
+        }
+        else{
+            median = middle;
+        }
+        return median;
     }
 
     public static int medianFoodServiceEstimateTonnesPerYear(int[] foodServiceEstimatesTonnesPerYear)
     {
-        return -1;
+        int median = 0;
+        Arrays.sort(foodServiceEstimatesTonnesPerYear);
+        int middle = foodServiceEstimatesTonnesPerYear[foodServiceEstimatesTonnesPerYear.length/2];
+        if(foodServiceEstimatesTonnesPerYear.length%2 == 0){
+            int secondValue = foodServiceEstimatesTonnesPerYear[foodServiceEstimatesTonnesPerYear.length/2+1];
+            median = (middle + secondValue)/2;
+        }
+        else{
+            median = middle;
+        }
+        return median;
     }
 
     /**
@@ -131,32 +198,39 @@ public class Main {
 
     public static int minHouseholdEstimateKgPerCapitaPerYear(int[] householdEstimatesKgPerCapitaPerYear)
     {
-        return -1;
+        Arrays.sort(householdEstimatesKgPerCapitaPerYear);
+        return (householdEstimatesKgPerCapitaPerYear[0]);
     }
 
     public static int minHouseholdEstimateTonnesPerYear(int[] householdEstimatesTonnesPerYear)
     {
-        return -1;
+        int minVal = householdEstimatesTonnesPerYear[0];
+        for (int i : householdEstimatesTonnesPerYear) if (minVal > i) minVal = i;
+        return minVal;
     }
 
     public static int minRetailEstimateKgPerCapitaPerYear(int[] retailEstimatesKgPerCapitaPerYear)
     {
-        return -1;
+        Arrays.sort(retailEstimatesKgPerCapitaPerYear);
+        return (retailEstimatesKgPerCapitaPerYear[0]);
     }
 
     public static int minRetailEstimateTonnesPerYear(int[] retailEstimatesTonnesPerYear)
     {
-        return -1;
+        Arrays.sort(retailEstimatesTonnesPerYear);
+        return (retailEstimatesTonnesPerYear[0]);
     }
 
     public static int minFoodServiceEstimateKgPerCapitaPerYear(int[] foodServiceEstimatesKgPerCapitaPerYear)
     {
-        return -1;
+        Arrays.sort(foodServiceEstimatesKgPerCapitaPerYear);
+        return (foodServiceEstimatesKgPerCapitaPerYear[0]);
     }
 
     public static int minFoodServiceEstimateTonnesPerYear(int[] foodServiceEstimatesTonnesPerYear)
     {
-        return -1;
+        Arrays.sort(foodServiceEstimatesTonnesPerYear);
+        return (foodServiceEstimatesTonnesPerYear[0]);
     }
 
     /**
@@ -176,12 +250,24 @@ public class Main {
 
     public static int maxHouseholdEstimateKgPerCapitaPerYear(int[] householdEstimatesKgPerCapitaPerYear)
     {
-        return -1;
+        int max = householdEstimatesKgPerCapitaPerYear[0];
+        for(int val: householdEstimatesKgPerCapitaPerYear){
+            if(val>max){
+                max = val;
+            }
+        }
+        return max;
     }
 
     public static int maxHouseholdEstimateTonnesPerYear(int[] householdEstimatesTonnesPerYear)
     {
-        return -1;
+        int max = householdEstimatesTonnesPerYear[0];
+        for(int val: householdEstimatesTonnesPerYear){
+            if(val>max){
+                max = val;
+            }
+        }
+        return max;
     }
 
     public static int maxRetailEstimateKgPerCapitaPerYear(int[] retailEstimatesKgPerCapitaPerYear)
@@ -213,12 +299,24 @@ public class Main {
 
     public static int maxFoodServiceEstimateKgPerCapitaPerYear(int[] foodServiceEstimatesKgPerCapitaPerYear)
     {
-        return -1;
+        int max = foodServiceEstimatesKgPerCapitaPerYear[0];
+        for(int val: foodServiceEstimatesKgPerCapitaPerYear){
+            if(val>max){
+                max = val;
+            }
+        }
+        return max;
     }
 
     public static int maxFoodServiceEstimateTonnesPerYear(int[] foodServiceEstimatesTonnesPerYear)
     {
-        return -1;
+        int max = foodServiceEstimatesTonnesPerYear[0];
+        for(int val: foodServiceEstimatesTonnesPerYear){
+            if(val>max){
+                max = val;
+            }
+        }
+        return max;
     }
 
     /**
