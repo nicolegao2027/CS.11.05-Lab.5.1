@@ -1,3 +1,6 @@
+import java.util.ArrayList;
+import java.util.Arrays;
+
 public class Main {
 
     /**
@@ -6,12 +9,22 @@ public class Main {
 
     public static int meanTotalWasteKgPerCapitaPerYear(int[] totalWasteKgPerCapitaPerYear)
     {
-        return -1;
+        int total = 0;
+        for(int i = 0; i < totalWasteKgPerCapitaPerYear.length; i++){
+            total += totalWasteKgPerCapitaPerYear[i];
+        }
+        return total/totalWasteKgPerCapitaPerYear.length + 1;
     }
 
     public static int meanHouseholdEstimateKgPerCapitaPerYear(int[] householdEstimatesKgPerCapitaPerYear)
     {
-        return -1;
+        int total = 0;
+        int mean =0;
+        for(int i = 0; i<householdEstimatesKgPerCapitaPerYear.length;i++){
+            total += householdEstimatesKgPerCapitaPerYear[i];
+        }
+        mean = total/householdEstimatesKgPerCapitaPerYear.length + 1;
+        return mean;
     }
 
     public static int meanHouseholdEstimateTonnesPerYear(int[] householdEstimatesTonnesPerYear)
@@ -21,17 +34,32 @@ public class Main {
 
     public static int meanRetailEstimateKgPerCapitaPerYear(int[] retailEstimatesKgPerCapitaPerYear)
     {
-        return -1;
+        int b = 0;
+        for (int i : retailEstimatesKgPerCapitaPerYear) {
+            b = b + retailEstimatesKgPerCapitaPerYear[i];
+        }
+        b = b / retailEstimatesKgPerCapitaPerYear.length;
+        return b;
     }
 
     public static int meanRetailEstimateTonnesPerYear(int[] retailEstimatesTonnesPerYear)
     {
-        return -1;
+        int a = 0;
+        for (int i=0;i<retailEstimatesTonnesPerYear.length;i++) {
+            a += retailEstimatesTonnesPerYear[i];
+        }
+        a = a / retailEstimatesTonnesPerYear.length;
+        return a;
     }
 
     public static int meanFoodServiceEstimateKgPerCapitaPerYear(int[] foodServiceEstimatesKgPerCapitaPerYear)
     {
-        return -1;
+        double sum = 0;
+        for (int i:foodServiceEstimatesKgPerCapitaPerYear){
+            sum = sum + i;
+        }
+        double mean = (sum/foodServiceEstimatesKgPerCapitaPerYear.length)+0.5;
+        return (int)mean;
     }
 
     public static int meanFoodServiceEstimateTonnesPerYear(int[] foodServiceEstimatesTonnesPerYear)
@@ -60,7 +88,19 @@ public class Main {
 
     public static int medianRetailEstimateKgPerCapitaPerYear(int[] retailEstimatesKgPerCapitaPerYear)
     {
-        return -1;
+        int median = 0;
+        Arrays.sort(retailEstimatesKgPerCapitaPerYear);
+        int middle = retailEstimatesKgPerCapitaPerYear[retailEstimatesKgPerCapitaPerYear.length/2];
+        if(retailEstimatesKgPerCapitaPerYear.length%2 == 0){
+            int secondValue = retailEstimatesKgPerCapitaPerYear[retailEstimatesKgPerCapitaPerYear.length/2+1];
+            median = (middle + secondValue)/2;
+        }
+        else{
+            median = middle;
+        }
+
+
+        return median;
     }
 
     public static int medianRetailEstimateTonnesPerYear(int[] retailEstimatesTonnesPerYear)
@@ -84,7 +124,9 @@ public class Main {
 
     public static int minTotalWasteKgPerCapitaPerYear(int[] totalWasteKgPerCapitaPerYear)
     {
-        return -1;
+        int minVal = totalWasteKgPerCapitaPerYear[0];
+        for (int i : totalWasteKgPerCapitaPerYear) if (minVal > i) minVal = i;
+        return minVal;
     }
 
     public static int minHouseholdEstimateKgPerCapitaPerYear(int[] householdEstimatesKgPerCapitaPerYear)
@@ -123,7 +165,13 @@ public class Main {
     
     public static int maxTotalWasteKgPerCapitaPerYear(int[] totalWasteKgPerCapitaPerYear)
     {
-        return -1;
+        int max = totalWasteKgPerCapitaPerYear[0];
+        for(int val: totalWasteKgPerCapitaPerYear){
+            if(val>max){
+                max = val;
+            }
+        }
+        return max;
     }
 
     public static int maxHouseholdEstimateKgPerCapitaPerYear(int[] householdEstimatesKgPerCapitaPerYear)
@@ -138,12 +186,29 @@ public class Main {
 
     public static int maxRetailEstimateKgPerCapitaPerYear(int[] retailEstimatesKgPerCapitaPerYear)
     {
-        return -1;
+        if (retailEstimatesKgPerCapitaPerYear == null || retailEstimatesKgPerCapitaPerYear.length == 0) {
+            return -1;
+        }
+        int mv = retailEstimatesKgPerCapitaPerYear[0];
+        for (int e : retailEstimatesKgPerCapitaPerYear) {
+            if (e > mv) {
+                mv = e;
+            }
+        }
+        return mv;
     }
 
-    public static int maxRetailEstimateTonnesPerYear(int[] retailEstimatesTonnesPerYear)
-    {
-        return -1;
+    public static int maxRetailEstimateTonnesPerYear(int[] retailEstimatesTonnesPerYear) {
+        if (retailEstimatesTonnesPerYear == null || retailEstimatesTonnesPerYear.length == 0) {
+            return -1;
+        }
+        int me = retailEstimatesTonnesPerYear[0];
+        for (int e : retailEstimatesTonnesPerYear) {
+            if (e > me) {
+                me = e;
+            }
+        }
+        return me;
     }
 
     public static int maxFoodServiceEstimateKgPerCapitaPerYear(int[] foodServiceEstimatesKgPerCapitaPerYear)
@@ -160,23 +225,56 @@ public class Main {
      * Misc Methods
      */
 
-    public static String getCountryTotalWastePerYear(String country, String[] countries, int[] totalWasteKgPerCapitaPerYear)
+    public static int getCountryTotalWastePerYear(String country, String[] countries, int[] totalWasteKgPerCapitaPerYear)
     {
-        return "";
+        int indexofcountry=0;
+        for(int i=0;i<totalWasteKgPerCapitaPerYear.length;i++){
+            if(countries[i].equals(country)){
+                indexofcountry=i;
+            }
+        }
+        return totalWasteKgPerCapitaPerYear[indexofcountry];
     }
 
     public static String getCountryWithMostWastePerCapita(String[] countries, int[] totalWasteKgPerCapitaPerYear)
     {
-        return "";
+        int max=totalWasteKgPerCapitaPerYear[0];
+        int indexmax=0;
+        for(int i=0;i<totalWasteKgPerCapitaPerYear.length;i++){
+            if(totalWasteKgPerCapitaPerYear[i]>max){
+                max=totalWasteKgPerCapitaPerYear[i];
+                indexmax=i;
+            }
+        }
+        return ""+countries[indexmax];
     }
 
     public static String[] getCountriesWithHighestPovertyPercentage(String[] countries, double[] percentagesShareInPoverty)
     {
-        return new String[0];
+        double maxPoverty = -1;
+        for (double poverty : percentagesShareInPoverty) {
+            if (poverty > maxPoverty) {
+                maxPoverty = poverty;
+            }
+        }
+        ArrayList<String> result = new ArrayList<>();
+        for (int i = 0; i < percentagesShareInPoverty.length; i++) {
+            if (percentagesShareInPoverty[i] == maxPoverty) {
+                result.add(countries[i]);
+            }
+        }
+
+        return result.toArray(new String[0]);
     }
 
     public static String[] getCountriesWithHighConfidence(String[] countries, String[] confidences)
     {
-        return new String[0];
+        ArrayList<String> result = new ArrayList<>();
+        for (int i = 0; i < confidences.length; i++) {
+            if (confidences[i].equals("High Confidence")) {
+                result.add(countries[i]);
+            }
+        }
+        return result.toArray(new String[0]);
     }
 }
